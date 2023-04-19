@@ -26,7 +26,7 @@ const DexScreen = () => {
         return poke.name.includes(search)
     })
     .map((poke, index) => {
-        return <PokedexCard poke={poke}/>
+        return <PokedexCard poke={poke} index={index}/>
     })
 
 
