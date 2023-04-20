@@ -3,23 +3,23 @@ import axios from 'axios'
 import PokedexCard from "../components/PokedexCard";
 
 
-const DexScreen = () => {
-    const [pokemon, setPokemon] = useState([])
+const DexScreen = ({pokemon}) => {
+    // const [pokemon, setPokemon] = useState([])
     const [search, setSearch] = useState("")
 
     const handleSearch = (e) => setSearch(e.target.value.toLowerCase())
 
-    useEffect (()=> {
-        axios
-            .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
-            .then((res)=> {
-                let newState = res.data.results.map((item, index) => {
-                    item.img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`
-                    return item
-                })
-                setPokemon(newState)
-            })
-    }, [])
+    // useEffect (()=> {
+    //     axios
+    //         .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
+    //         .then((res)=> {
+    //             let newState = res.data.results.map((item, index) => {
+    //                 item.img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`
+    //                 return item
+    //             })
+    //             setPokemon(newState)
+    //         })
+    // }, [])
 
     const pokemonDisplay = pokemon
     .filter((poke, index) => {
