@@ -14,7 +14,16 @@ const GlobalContextProvider = (props) => {
     const reducer = (state, action) => {
         switch(action.type) {
             case 'ADD_TO_TEAM':
+                for (let i = 0; i < state.team.length; i++) {
+                    if (state.team[i].id = action.payload.id) return state
+                }
                 return {...state, team: [...state.team, action.payload]}
+            case 'REMOVE_FROM_TEAM':
+               const newState = state.team.filter((pokemon) => {
+                return pokemon.id !== action.payload.id
+               })
+            return {...state, team: [...newState]}
+            
             default:
                 return state
         }

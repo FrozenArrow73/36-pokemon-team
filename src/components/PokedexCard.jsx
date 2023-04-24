@@ -12,7 +12,6 @@ const PokedexCard = (props) => {
                 dispatch({type: 'ADD_TO_TEAM', payload: res.data})
             })
     }
-    console.log(state.team)
 
     return (
         <div className="card">
